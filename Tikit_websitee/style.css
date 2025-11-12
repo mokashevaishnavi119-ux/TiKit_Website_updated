@@ -1,0 +1,196 @@
+/* Basic reset & typography */
+* { box-sizing: border-box; }
+html,body { height:100%; }
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background:#f4f4f9;
+  color:#222;
+}
+
+/* Sidebar */
+.menu-toggle {
+  position: fixed;
+  left: 12px;
+  top: 12px;
+  z-index: 40;
+  background: #3f51b5;
+  color: white;
+  border: none;
+  padding: 10px 12px;
+  border-radius: 8px;
+  display: none; /* shown on mobile */
+  cursor: pointer;
+}
+
+.sidebar {
+  width: 240px;
+  background: #22223a;
+  color: #fff;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  padding: 1.25rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  z-index: 30;
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #ffca28;
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.sidebar nav li {
+  margin-bottom: 0.6rem;
+}
+
+.nav-link {
+  color: #eee;
+  text-decoration: none;
+  display: block;
+  padding: 10px 12px;
+  border-radius: 6px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.nav-link:hover {
+  background: rgba(255,255,255,0.05);
+}
+
+.nav-link.active {
+  background: #ffca28;
+  color: #222;
+  font-weight: 600;
+}
+
+/* Page layout */
+.page {
+  margin-left: 240px; /* space for sidebar */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  background: #3f51b5;
+  color: white;
+  padding: 16px 24px;
+  display: flex;
+  align-items:center;
+  gap: 12px;
+}
+
+.content {
+  padding: 24px;
+  flex: 1 1 auto;
+  background: white;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+/* small reusable components */
+.hero-image {
+  width:100%;
+  height:260px;
+  background: center/cover no-repeat url('https://images.unsplash.com/photo-1529101091764-c3526daf38fe?auto=format&fit=crop&w=1200&q=60');
+  border-radius:8px;
+  margin: 16px 0;
+}
+
+.steps, .team {
+  display:flex;
+  gap:1rem;
+  flex-wrap:wrap;
+}
+
+.card {
+  flex: 1 1 220px;
+  background:#f9f9ff;
+  padding:16px;
+  border-radius:8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+/* booking + payment */
+.booking-form {
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  max-width:480px;
+  margin: 12px 0;
+}
+
+.booking-form input,
+.booking-form select,
+.booking-form button {
+  padding:10px;
+  border-radius:6px;
+  border:1px solid #ccc;
+  font-size:1rem;
+}
+
+.booking-form button {
+  background:#3f51b5;
+  color:white;
+  border:none;
+  cursor:pointer;
+}
+
+.ticket-card {
+  background:#fff3e0;
+  border-left:4px solid #ff9800;
+  padding:12px;
+  margin-top:12px;
+  border-radius:6px;
+}
+
+/* alert */
+.alert {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  background: #ffeb3b;
+  color: #222;
+  padding: 10px 14px;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  z-index: 60;
+}
+
+/* footer */
+.footer {
+  text-align:center;
+  padding:12px;
+  background:transparent;
+  color:#666;
+  font-size:0.95rem;
+}
+
+/* Responsive: mobile */
+@media (max-width: 900px) {
+  .sidebar { transform: translateX(-100%); transition: transform 0.25s ease; position: fixed; }
+  .sidebar.open { transform: translateX(0); }
+  .page { margin-left: 0; }
+  .menu-toggle { display: block; }
+  .topbar { padding-left: 56px; } /* allow space for menu toggle */
+  .content { margin: 12px; padding: 16px; }
+}
+
+/* small screens tweaks */
+@media (max-width: 480px) {
+  .hero-image { height:160px; }
+  .topbar h2 { font-size: 1rem; }
+  .booking-form { width:100%; }
+}
